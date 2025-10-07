@@ -1,0 +1,124 @@
+// Theme tokens (per theme)
+$theme-light: (
+  // main page background, card backgrounds
+  bg: #ffffff,
+  // primary brand color, main CTAs, headers
+  primary: #030213,
+  primary-hover: #1a1933,
+  primary-foreground: oklch(1 0 0),
+  // secondary, subtle background areas, secondary buttons
+  secondary: oklch(0.95 0.0058 264.53),
+  secondary-hover: oklch(0.9 0.02 264.53),
+  secondary-foreground: #030213,
+  // main text color, high contrast content
+  text: #1a1a1a,
+  // muted background sections, disabled states
+  muted: #ececf0,
+  muted-foreground: #717182,
+  // accent background, hover states
+  accent: #e9ebef,
+  accent-foreground: #030213,
+  // input background
+  input-bg: #f3f3f5,
+  // errors, delete, warnings
+  error: #d4183d,
+  // muted foreground, secondary text, descriptions, captions
+  secondary-muted: #717182,
+  // switch background, form controls
+  switch: #cbced4,
+  // borders, dividers, outlines
+  border: #0000001a,
+  // tasks status
+  to-do: oklch(0.623 0.214 259.815),
+  in-progress: oklch(0.795 0.184 86.047),
+  done: oklch(0.723 0.219 149.579)
+);
+
+$theme-dark: (
+  // main page background, card backgrounds
+  bg: oklch(0.145 0 0),
+  // primary brand color, main CTAs, headers
+  primary: oklch(0.985 0 0),
+  primary-hover: oklch(0.95 0 0),
+  primary-foreground: oklch(0.205 0 0),
+  // secondary, subtle background areas, secondary buttons
+  secondary: oklch(0.269 0 0),
+  secondary-hover: oklch(0.32 0 0),
+  secondary-foreground: oklch(0.985 0 0),
+  // main text color, high contrast content
+  text: #fafafa,
+  // muted background sections, disabled states
+  muted: oklch(0.269 0 0),
+  muted-foreground: oklch(0.708 0 0),
+  // accent background, hover states
+  accent: oklch(0.269 0 0),
+  accent-foreground: oklch(0.985 0 0),
+  // input background
+  input-bg: oklch(0.269 0 0),
+  // errors, delete, warnings
+  error: oklch(0.269 0 0),
+  // muted foreground, secondary text, descriptions, captions
+  secondary-muted: #b0b0b0,
+  // switch background, form controls
+  switch: #cbced4,
+  // borders, dividers, outlines
+  border: oklch(0.269 0 0),
+  // tasks status
+  to-do: oklch(0.623 0.214 259.815),
+  in-progress: oklch(0.795 0.184 86.047),
+  done: oklch(0.723 0.219 149.579)
+);
+
+// Helper: export a map as CSS variables
+@mixin export-theme($map) {
+  @each $name, $value in $map {
+    --#{$name}: #{$value};
+  }
+}
+
+// Optional: tiny helper to read a CSS variable in SCSS
+@function c($name) {
+  @return var(--#{$name});
+}
+
+// mixin to generate classes depending on theme
+@mixin generate-color-classes($map) {
+  @each $name, $value in $map {
+    .color-#{$name} {
+      color: #{$value};
+    }
+    .background-#{$name} {
+      background-color: #{$value};
+    }
+  }
+}
+
+// Emit variables for both themes
+:root {
+  @include export-theme($theme-light);
+  @include generate-color-classes($theme-light);
+  color-scheme: light; // hints to UA for form controls/scrollbars, etc.
+}
+
+.dark {
+  @include export-theme($theme-dark);
+  @include generate-color-classes($theme-dark);
+  color-scheme: dark;
+}
+
+body {
+  background: c(bg);
+  color: c(text);
+}
+
+.button {
+  background: c(primary);
+  color: c(primary-foreground);
+  border: 1px solid c(border);
+}
+
+
+.border-1 {
+  border: 1px solid;
+  border-color: var(--border);
+}
