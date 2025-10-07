@@ -34,7 +34,6 @@ export default async function RootLayout({
         <meta name="color-scheme" content="light dark" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
         {children}
       </body>
     </html>
