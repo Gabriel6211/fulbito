@@ -1,7 +1,9 @@
 // Theme tokens (per theme)
 $theme-light: (
+  // top bar background
+  top-bar: #ffffff,
   // main page background, card backgrounds
-  bg: #ffffff,
+  bg: #f9fafc,
   // primary brand color, main CTAs, headers
   primary: #030213,
   primary-hover: #1a1933,
@@ -28,15 +30,24 @@ $theme-light: (
   switch: #cbced4,
   // borders, dividers, outlines
   border: #0000001a,
-  // tasks status
-  to-do: oklch(0.623 0.214 259.815),
-  in-progress: oklch(0.795 0.184 86.047),
-  done: oklch(0.723 0.219 149.579)
+  // expense status colors
+  income: #009866,
+  income-light: #d1fae4,
+  available: #165dfc,
+  available-light: #dbeaff,
+  spent: #e7000b,
+  spent-light: #ffe2e2,
+  streak: #e17100,
+  streak-light: #fff3c6,
+  best: #8023fe,
+  best-light: #f5f3ff
 );
 
 $theme-dark: (
+  // top bar background
+  top-bar: oklch(0.145 0 0),
   // main page background, card backgrounds
-  bg: oklch(0.145 0 0),
+  bg: #0f0f0f,
   // primary brand color, main CTAs, headers
   primary: oklch(0.985 0 0),
   primary-hover: oklch(0.95 0 0),
@@ -63,10 +74,17 @@ $theme-dark: (
   switch: #cbced4,
   // borders, dividers, outlines
   border: oklch(0.269 0 0),
-  // tasks status
-  to-do: oklch(0.623 0.214 259.815),
-  in-progress: oklch(0.795 0.184 86.047),
-  done: oklch(0.723 0.219 149.579)
+  // expense status colors
+  income: #d1fae4,
+  income-light: #009866,
+  available: #dbeaff,
+  available-light: #165dfc,
+  spent: #ffe2e2,
+  spent-light: #e7000b,
+  streak: #fff3c6,
+  streak-light: #e17100,
+  best: #f5f3ff,
+  best-light: #8023fe
 );
 
 // Helper: export a map as CSS variables
@@ -116,7 +134,6 @@ body {
   color: c(primary-foreground);
   border: 1px solid c(border);
 }
-
 
 .border-1 {
   border: 1px solid;
