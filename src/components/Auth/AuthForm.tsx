@@ -201,7 +201,6 @@ export default function AuthForm({
                 name="fullName"
                 placeholder="Enter your full name"
                 onChange={(e) => setFullName(e.target.value)}
-                required
               />
             </div>
           </div>
