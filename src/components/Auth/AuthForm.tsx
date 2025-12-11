@@ -247,7 +247,7 @@ export default function AuthForm({
           </Button>
         </div>
       </form>
-      {authMode == "sign-in" && (
+      {authMode === "sign-in" && (
         <div>
           <div className="flex flex-row items-center justify-center my-4">
             <hr className="w-full border-0 h-[1px] bg-[var(--border)]" />
