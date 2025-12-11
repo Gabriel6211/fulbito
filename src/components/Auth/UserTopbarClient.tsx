@@ -98,7 +98,6 @@ export default function UserTopbarClient({ initialUser }: UserTopbarClientProps)
     setDropdownMenuShown(false);
     await useAuthStore.getState().handleLogout();
     refreshAll();
-    window.location.reload();
   };
 
   return (
