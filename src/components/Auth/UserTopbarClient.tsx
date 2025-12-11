@@ -87,6 +87,15 @@ export default function UserTopbarClient({ initialUser }: UserTopbarClientProps)
     setImageLoaded(false);
   }, [renderedUser?.photo]);
 
+  // Reset isLoggingOut when logout completes (currentUser becomes null)
+  useEffect(() => {
+    if (isLoggingOut && !currentUser) {
+      // Logout has completed - reset the logging out state
+      setIsLoggingOut(false);
+      setLogoutUserSnapshot(null);
+    }
+  }, [isLoggingOut, currentUser]);
+
   const { refreshAll } = useAuthRefresh();
 
   const onLogout = async () => {
