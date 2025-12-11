@@ -163,6 +163,7 @@ export default function AuthForm({
     setEmail("");
     setPassword("");
     setFullName("");
+    setAuthError(null);
     setLoading(false);
   };
 
