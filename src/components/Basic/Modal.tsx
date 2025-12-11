@@ -32,7 +32,7 @@ export default function Modal({
     >
       <div className="relative rounded-lg bg-[var(--bg)] p-5" onClick={(e) => e.stopPropagation()}>
         <button
-          className="absolute top-2 right-2 cursor"
+          className="absolute top-2 right-2 cursor-pointer"
           onClick={onClose}
         >
           <IoClose />

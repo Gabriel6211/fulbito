@@ -149,7 +149,7 @@ export default function UserTopbarClient({ initialUser }: UserTopbarClientProps)
                   Profile
                 </Link>
                 <Link
-                  href="/profile"
+                  href="/help"
                   className="flex flex-row gap-2 items-center text-sm font-medium cursor-pointer hover:bg-[var(--muted)] rounded-lg p-2"
                 >
                   <LuCircleHelp className="text-[var(--secondary-muted)] w-4 h-4" size={16} />

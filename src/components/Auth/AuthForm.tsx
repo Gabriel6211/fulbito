@@ -60,6 +60,7 @@ export default function AuthForm({
       await signInWithEmailAndPassword(auth, email, password);
 
       // Success, clear states, store automatically updates via listener
+      setLoading(false);
       handleClose();
     } catch (error: unknown) {
       setLoading(false);
@@ -108,6 +109,7 @@ export default function AuthForm({
       }
 
       // Success, clear states and close modal
+      setLoading(false);
       handleClose();
     } catch (error: unknown) {
       setLoading(false);
@@ -131,6 +133,7 @@ export default function AuthForm({
     try {
       setLoading(true);
       await signInWithPopup(auth, provider);
+      setLoading(false);
       handleClose();
     } catch (error: unknown) {
       setLoading(false);

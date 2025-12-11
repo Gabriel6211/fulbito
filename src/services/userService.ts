@@ -26,7 +26,7 @@ export async function createUser(userData: UserData, token: string) {
 
     return data;
   } catch (error) {
-    console.error("Error testing DB connection:", error);
+    console.error("Error creating user:", error);
     throw new Error("Failed to connect to the external API.");
   }
 }
