@@ -18,6 +18,7 @@ export async function createUser(userData: UserData, token: string) {
     });
 
     if (!response.ok) {
+      console.log(response);
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 

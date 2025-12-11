@@ -11,6 +11,20 @@ const firebaseConfig = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
+// Validate required environment variables
+if (!firebaseConfig.apiKey || !firebaseConfig.authDomain || !firebaseConfig.projectId) {
+  const missing = [];
+  if (!firebaseConfig.apiKey) missing.push("NEXT_PUBLIC_FIREBASE_API_KEY");
+  if (!firebaseConfig.authDomain) missing.push("NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN");
+  if (!firebaseConfig.projectId) missing.push("NEXT_PUBLIC_FIREBASE_PROJECT_ID");
+  
+  console.error(
+    `❌ Missing Firebase client configuration in .env.local:\n` +
+    `   Missing: ${missing.join(", ")}\n` +
+    `   Get these values from: Firebase Console > Project Settings > General > Your apps > Web app config`
+  );
+}
+
 // Check if an app is already initialized (important for Next.js hot reloading)
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 

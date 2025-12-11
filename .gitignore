@@ -44,3 +44,4 @@ src/firebase/serviceAccount.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+convert-to-env.sh
