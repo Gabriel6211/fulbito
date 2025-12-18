@@ -24,7 +24,7 @@ const Button: React.FC<ButtonProps> = ({
   ...rest // Collects all other props (onClick, href, type, disabled, etc.)
 }) => {
   const baseStyles =
-    "rounded-lg font-semibold cursor-pointer text-sm flex flex-row items-center justify-center";
+    "rounded-lg font-semibold text-sm flex flex-row items-center justify-center";
   const isLink = "href" in rest;
 
   const variantStylesButton = {
@@ -67,8 +67,13 @@ const Button: React.FC<ButtonProps> = ({
 
   // If href does not exist, render a standard HTML button.
   const buttonProps = rest as ButtonHTMLAttributes<HTMLButtonElement>;
+  const isDisabled = loading || buttonProps.disabled;
+  
+  const cursorClass = isDisabled ? "cursor-not-allowed opacity-50" : "cursor-pointer";
+  const finalClasses = classNames(combinedClasses, cursorClass);
+  
   return (
-    <button className={combinedClasses} {...buttonProps} type={type}>
+    <button className={finalClasses} {...buttonProps} type={type} disabled={isDisabled}>
       {loading ? (
         <div className="w-4 h-4 border-2 border-gray-300 border-t-[var(--primary)] rounded-full animate-spin" />
       ) : (

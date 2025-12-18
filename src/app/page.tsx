@@ -45,7 +45,7 @@ export default function Page() {
           {timelineButtons.map((button) => (
             <button
               key={button.value}
-              className={`cursor-pointer px-4 py-2 rounded-md ${timeline === button.value && "bg-[var(--primary)] text-[var(--bg)] font-medium"}`}
+              className={`cursor-pointer px-4 py-2 rounded-md ${timeline === button.value ? "bg-[var(--primary)] text-[var(--bg)] font-medium" : ""}`}
               onClick={() => setTimeline(button.value as typeof timeline)}
             >
               {button.text}
